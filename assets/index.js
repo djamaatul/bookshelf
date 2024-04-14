@@ -50,8 +50,8 @@ create.onclick = () => {
 logout.onclick = logoutAction;
 
 const renderData = ({ isComplete, filter = '' }) => {
-	const data = window.localStorage.getItem('DATA');
-	if (data) {
+	let data = window.localStorage.getItem('DATA');
+	if (!data) data = '[]'
 		const parsed = JSON.parse(data);
 
 		const filtered = parsed.filter(item => {
@@ -89,7 +89,6 @@ const renderData = ({ isComplete, filter = '' }) => {
 				unread.innerHTML = html;
 			}
 		}, 500);
-	}
 };
 
 const refreshData = () => {
@@ -140,7 +139,7 @@ form.onsubmit = (e) => {
 		if (values.isComplete) {
 			readedTab.onclick();
 		} else {
-			unread.onclick();
+			unreadTab.onclick();
 		}
 		//hide bottomsheet
 		bottomSheetOverlay.onclick();
