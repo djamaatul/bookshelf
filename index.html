@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./assets/index.js" type="text/javascript" defer></script>
+	<script src="./assets/layout.js" type="text/javascript" defer></script>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>Bookself</title>
+</head>
+<body class="max-w-lg mx-auto relative">
+	<header class="p-4 bg-blue-500 flex justify-between ">
+		<div class="flex-1 text-white">
+			<h1 class="text-xl font-medium text-white">Bookshelf</h1>
+			<h1 class="text-3xl mt-4">Hello, <span id="name"></span> !</h1>
+		</div>
+		<nav class="relative">
+			<input type="checkbox" class="absolute left-0 w-full h-full peer opacity-0 cursor-pointer">
+			<a href="#" id="dropdown"><i class="fa-solid fa-bars text-2xl text-white"></i></a>
+			<div class="relative h-0 invisible [&_ul]:opacity-0 peer-focus-within:[&_ul]:opacity-100 peer-focus-within:visible">
+				<ul class="absolute p-2 top-0 right-0 bg-white rounded-lg z-50 text-initial min-w-max overflow-hidden [&_li:hover]:bg-blue-500/10 [&_li]:px-4 [&_li]:p-1 [&_li]:rounded-lg [&_li]:cursor-pointer duration-200">
+					<li id="create">Buat Baru</li>
+					<li id="logout" class="text-red-500">Keluar</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<aside class="bg-blue-500 p-4 sticky top-0 text-white">
+		<div class="relative">
+			<input type="text" class="border-none rounded-lg p-2 focus:outline-none bg-white/50 w-full placeholder:text-white" placeholder="Cari Buku" id="search">
+			<i class="fa-solid fa-magnifying-glass absolute right-3 content-center h-full cursor-pointer" id="search-button"></i>
+		</div>
+	</aside>
+	<nav class="flex mb-4 [&_button]:flex-1 [&_button]:font-medium [&_button]:flex-1 [&_button]:p-2 [&_button:active]:bg-blue-500 [&_button:active]:text-white" id="tab-container">
+		<button>Belum Dibaca</button>
+		<button class="bg-blue-500 text-white">Sudah Dibaca</button>
+	</nav>
+	<main class="shadow-md min-h-screen w-full flex flex-col">
+		<div id="content" class="flex-1 flex snap-mandatory snap-x overflow-x-scroll [&_section]:px-4">
+				<section class="space-y-4 min-w-full snap-center" id="unread-content">
+				</section>
+			<section class="space-y-4 min-w-full snap-center" id="readed-content">
+				<h2 class="font-medium">Sudah dibaca</h2>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+				<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col animate-pulse gap-2">
+					<h2 class="inline-block h-3 w-full bg-gray-200 animate-pulse"></h2>
+					<h3 class="inline-block h-3 w-16 bg-gray-200 animate-pulse"></h3>
+					<h4 class="self-end h-3 w-24 bg-gray-200"></h4>
+				</div>
+			</section>
+			<footer>
+				
+			</footer>
+		</div>
+		<section class="absolute z-50 w-full top-0 left-0 flex items-end h-0 bg-black/10 backdrop-blur-sm" id="bottom-sheet-overlay">
+			<div class="border shadow-[0px_1px_1px_rgba(0,0,0,0.2)] w-full rounded-t-3xl flex flex-col duration-500 transition-all max-h-0 overflow-hidden z-50 bg-white relative" id="bottom-sheet">
+				<i class="fa-solid fa-xmark absolute top-8 right-8 text-2xl text-gray-500 cursor-pointer" id="bottom-sheet-close"></i>
+				<div class="bg-white border w-8 rounded-full h-2 self-center m-2" id="bottom-sheet-dragable"></div>
+				<div class="p-4 flex flex-col my-4" id="bottom-sheet-content">
+					<form id="form" class="grid grid-cols-12 [&_div]:flex [&_div]:flex-col [&_div]:gap-2 gap-4">
+						<div class="col-span-12">
+							<label for="judul">Judul</label>
+							<input type="text" name="judul" id="judul" placeholder="Judul" class="border rounded-lg min-h-12 focus:outline-none px-2">
+						</div>
+						<div class="col-span-12">
+							<label for="penulis">Penulis</label>
+							<input type="text" name="penulis" id="penulis" placeholder="Penulis" class="border rounded-lg min-h-12 focus:outline-none px-2">
+						</div>
+						<div class="col-span-6">
+							<label for="tahun">Tahun</label>
+							<input type="number" name="tahun" id="tahun" placeholder="Tahun" class="border rounded-lg min-h-12 focus:outline-none px-2">
+						</div>
+						<div class="col-span-6">
+							<label for="isComplete">Selesai Dibaca</label>
+							<div class="flex-1 flex justify-center">
+								<label for="isComplete" class="relative w-10 h-6 border flex items-center p-2 rounded-full">
+									<input id="isComplete" name="isComplete" type="checkbox" class="peer absolute w-full h-full opacity-0">
+									<div class="absolute duration-300 h-[80%] aspect-square rounded-full peer-checked:right-1 peer-checked:bg-blue-500 peer-[:not(:checked)]:left-1 peer-[:not(:checked)]:bg-gray-500" ></div>
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="bg-blue-500 text-white p-2 rounded-lg hover:scale-105 active:scale-95 duration-300 col-span-12">Tambah</button>
+					</form>
+				</div>
+			</div>
+		</section>
+		<div class="absolute left-0 top-0 w-full h-full flex justify-center items-center z-50 bg-white/20 backdrop-blur-sm duration-300" id="placeholder">
+			<span class="font-medium text-xl text-blue-500">LOADING..</span>
+		</div>
+	</main>
+</body>
+</html>
