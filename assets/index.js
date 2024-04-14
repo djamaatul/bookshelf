@@ -47,10 +47,7 @@ create.onclick = () => {
 	bottomSheet.style.maxHeight = '900px';
 };
 
-logout.onclick = () => {
-	sessionStorage.removeItem('SESSION_ID');
-	window.open('/login.html', '_self');
-};
+logout.onclick = logoutAction;
 
 const renderData = ({ isComplete, filter = '' }) => {
 	const data = window.localStorage.getItem('DATA');
