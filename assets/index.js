@@ -55,7 +55,7 @@ const renderData = ({ isComplete, filter = '' }) => {
 		const parsed = JSON.parse(data);
 
 		const filtered = parsed.filter(item => {
-			const match = `${item.judul}`.toLowerCase().includes(filter.toLowerCase());
+			const match = `${item.title}`.toLowerCase().includes(filter.toLowerCase());
 			return item.isComplete === isComplete && match;
 		});
 		renderSplashscreen(isComplete ? readed : unread);
