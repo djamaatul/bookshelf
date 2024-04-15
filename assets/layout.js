@@ -17,3 +17,9 @@ if(!hasSession){
 	document.getElementById('placeholder').classList.add('opacity-0')
 	document.getElementById('placeholder').classList.add('hidden')
 }
+
+if(!localStorage.getItem('VERSION')){
+	localStorage.removeItem('DATA')
+}
+
+localStorage.setItem('VERSION', 0.1);

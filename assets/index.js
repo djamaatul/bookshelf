@@ -66,11 +66,11 @@ const renderData = ({ isComplete, filter = '' }) => {
 			` : ''}
 			${filtered.map(item => `
 					<div class="border rounded-xl min-w-fit p-4 overflow-hidden text-gray-500 text-sm flex flex-col">
-						<h2 class="text-black text-base font-medium">${item.judul}</h2>
+						<h2 class="text-black text-base font-medium">${item.title}</h2>
 						<div class="flex justify-between">
 							<div>
-								<h3 class="flex-1">Tahun: ${item.tahun}</h3>
-								<h4 class="justify-self-center overflow-hidden max-w-[200px] overflow-ellipsis whitespace-nowrap">Penulis: ${item.penulis}</h4>
+								<h3 class="flex-1">Tahun: ${item.year}</h3>
+								<h4 class="justify-self-center overflow-hidden max-w-[200px] overflow-ellipsis whitespace-nowrap">Penulis: ${item.author}</h4>
 							</div>
 							<div class="text-white flex gap-2">
 								<button class="bg-blue-500 px-2 rounded-lg" onclick="handleMarkRead(this)" data-id="${item.id}">Tandai ${item.isComplete ? 'Belum' : 'Sudah'} Baca</button>
@@ -123,6 +123,7 @@ form.onsubmit = (e) => {
 
 		values.isComplete = values.isComplete === 'on';
 		values.id = crypto.randomUUID();
+		values.year = +values.year
 
 		const prevData = window.localStorage.getItem('DATA');
 		const appendData = (newData, prev) => {
